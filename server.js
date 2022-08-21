@@ -12,6 +12,7 @@ const Wand = require('./models/Wand.js')
 
 //INTERNAL MODULES
 const testCtrl = require("./controllers/testRoute.js")
+//can add additional controllers here
 
 //INSTANCED MODULES
 const app = express()
@@ -38,18 +39,6 @@ app.use(express.static("public"))
 //require('ejs') pulls the elements from the ejs pages.    
 //const { render } displays any  elements from the ejs that I create on the webpage.
 
-
-//ROUTES & CONTROLLERS
-//Home route
-app.get("/", (req, res) => {
-    res.render("home");
-});
-
-// //404 route
-// app.get((req, res) => {
-//     res.send("404! error! page not found ")
-// })
-
 //SET UP MONGOOSE (added)
 const mongoose = require('mongoose')
 const mongoURI = process.env.MONGODB_URI
@@ -58,8 +47,130 @@ mongoose.connection.once('open', ()=> {
     console.log('connected to mongo')
 })
 
+//ROUTES & CONTROLLERS
+// //404 route
+// app.get((req, res) => {
+//     res.send("404! error! page not found ")
+// })
+
+//Home route
+app.get("/", (req, res) => {
+    res.render("home");
+});
+
+//seed
+app.get('/wands/seed', (req, res)=>{
+    Wand.create([
+        {
+            wood: 'Ash',
+            core: 'Unicorn Hair',
+            image: 'https://static.wikia.nocookie.net/harrypotter/images/8/8c/Ron_weasley_first_wand.jpg/revision/latest/scale-to-width-down/110?cb=20141208014135',
+            price: 5,
+            qty: 5,
+            clients: 'Ron Weasley', 'Cedric Diggory'
+        },
+        {
+            wood: 'Alder',
+            core: 'Phoenix Feather',
+            image: 'https://static.wikia.nocookie.net/harrypotter/images/b/bd/Alder.png/revision/latest?cb=20120718010016',
+            price: 5,
+            qty: 5,
+            clients: 'Quirinus Quirrell'
+        },
+        {
+            wood: 'Birch',
+            core: 'Dragon Heartstring',
+            image: 'https://static.wikia.nocookie.net/harrypotter/images/b/b1/Ash.png/revision/latest?cb=20130807174346',
+            price: 5,
+            qty: 5, 
+            clients: 'Dolores Umbridge'
+        },
+        {
+            wood: 'Cedar',
+            core: 'Dragon Heartstring',
+            image: 'https://static.wikia.nocookie.net/harrypotter/images/f/fb/ProfHoraceSlughornWandNN8294.jpg/revision/latest/scale-to-width-down/110?cb=20141208233440',
+            price: 5,
+            qty: 5, 
+            clients: 'Horace Slughorn'
+        },
+        {
+            wood: 'Cherry',
+            core: 'Unicorn Hair',
+            image: 'https://static.wikia.nocookie.net/harrypotter/images/f/f0/Neville%27s_wand.jpg/revision/latest/scale-to-width-down/110?cb=20141209002728',
+            price: 5,
+            qty: 5, 
+            clients: 'Neville Longbottom'
+        },
+        {
+            wood: 'Cherry',
+            core: 'Dragon Heartstring',
+            image: 'https://static.wikia.nocookie.net/harrypotter/images/6/6d/Gilderoy_Lockhart.jpg/revision/latest/scale-to-width-down/110?cb=20160117044239',
+            price: 5,
+            qty: 5, 
+            clients: 'Gilderoy Lockhart'
+        },
+        {
+            wood: 'Cypress',
+            core: 'Unicorn Hair',
+            image: 'https://static.wikia.nocookie.net/harrypotter/images/4/40/Remus_wand.jpg/revision/latest/scale-to-width-down/110?cb=20141208233259',
+            price: 5,
+            qty: 5, 
+            clients: 'Remus Lupin'
+        },
+        {
+            wood: 'Elm',
+            core: 'Dragon Heartstring',
+            image: 'https://static.wikia.nocookie.net/harrypotter/images/e/ee/Lucius_Malfoy_wand.png/revision/latest?cb=20210108150531',
+            price: 5,
+            qty: 5, 
+            clients: 'Lucius Malfoy'
+        },
+        {
+            wood: 'Elm',
+            core: 'Dragon Heartstring',
+            image: 'https://static.wikia.nocookie.net/harrypotter/images/e/ee/Lucius_Malfoy_wand.png/revision/latest?cb=20210108150531',
+            price: 5,
+            qty: 5, 
+            clients: 'Lucius Malfoy'
+        },
+        {
+            wood: 'Fir',
+            core: 'Dragon Heartstring',
+            image: 'https://static.wikia.nocookie.net/harrypotter/images/d/df/McGonagall_Wand.png/revision/latest/scale-to-width-down/1000?cb=20161128005505',
+            price: 5,
+            qty: 5, 
+            clients: 'Minerva McGonagall'
+        },
+        {
+            wood: 'Hawthorn',
+            core: 'Unicorn Hair',
+            image: 'https://static.wikia.nocookie.net/harrypotter/images/f/f0/Draco_Malfoy_Wand.jpg/revision/latest/scale-to-width-down/110?cb=20141208233016',
+            price: 5,
+            qty: 5, 
+            clients: 'Draco Malfoy'
+        }
+    ], (err, data)=>{
+        res.redirect('/wands')
+    })
+})
+
+
+
+// wood: {type: String, required: true},
+//     feather: {type: String, required: true},
+//     image: String,
+//     price: { type: Number, minimum: 0},
+//     qty: { type: Number, minimum: 0}
+
 //INTERNAL ROUTES
-app.use("/wands", testCtrl)
+app.use("/wands/seed", (req, res)=>{
+    Wand.create([])
+})
+
+
+
+
+
 
 //SERVER LISTENER
 app.listen(PORT, function(){
