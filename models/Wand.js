@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const wandsSchema = new Schema({
     wood: {type: String, required: true},
     core: {type: String},
-    image: {type: String},
+    img: {type: String},
     price: { type: Number, minimum: 0},
     qty: { type: Number, minimum: 0},
     clients: {type: String}

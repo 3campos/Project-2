@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ollivanders</title>
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+
+</head>
+
+<body>
+<div class = 'container'>
+    <div>
+        <span id = 'wandWood'><%=allWands.wood%></span><br/>
+        <span id = 'wandCore'><%=allWands.core%></span><br/>
+    </div>
+        <form action="/wands/<%=id%>?_method=DELETE" method="POST">
+        <input type ="submit" value="Delete"/>
+        </form>
+</div>
+<img id='wandsImg' src="https://imgur.com/Fk6GEyF"/><br/>
+<a href="/wands/<%=id%>/edit">Edit Wand</a>
+
+</body>
+</html>

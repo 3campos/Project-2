@@ -69,7 +69,13 @@ app.get("/wands", (req, res)=>{
 
 //show route
 app.get('/wands/:id', (req, res)=>{
-    res.send(console.log('test'))
+    console.log(Wands[req.params.id])
+    res.render('show.ejs', {
+    allWands: Wands[req.params.id],
+    //the request that we're making here is getting the param. The id is what is being passed in.
+    id: req.params.id
+    //we stored the id in its own variable that we can interpolate the variable into a delete route.
+    })
 })
 
 
