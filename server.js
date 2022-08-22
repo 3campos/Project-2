@@ -126,14 +126,6 @@ app.get('/wands/seed', (req, res)=>{
             clients: 'Lucius Malfoy'
         },
         {
-            wood: 'Elm',
-            core: 'Dragon Heartstring',
-            image: 'https://static.wikia.nocookie.net/harrypotter/images/e/ee/Lucius_Malfoy_wand.png/revision/latest?cb=20210108150531',
-            price: 5,
-            qty: 5, 
-            clients: 'Lucius Malfoy'
-        },
-        {
             wood: 'Fir',
             core: 'Dragon Heartstring',
             image: 'https://static.wikia.nocookie.net/harrypotter/images/d/df/McGonagall_Wand.png/revision/latest/scale-to-width-down/1000?cb=20161128005505',
@@ -148,19 +140,99 @@ app.get('/wands/seed', (req, res)=>{
             price: 5,
             qty: 5, 
             clients: 'Draco Malfoy'
-        }
+        },
+        {
+            wood: 'Hazel',
+            core: 'Unicorn Hair',
+            image: 'https://static.wikia.nocookie.net/harrypotter/images/e/e2/Sybill_Trelawney_wand.png/revision/latest?cb=20161126073936',
+            price: 5,
+            qty: 5, 
+            clients: 'Sybill Trelawney'
+        },
+        {
+            wood: 'Holly',
+            core: 'Phoenix Feather',
+            image: 'https://static.wikia.nocookie.net/harrypotter/images/c/ca/HarryPotterWandNN8415.jpg/revision/latest?cb=20141208232731',
+            price: 5,
+            qty: 5, 
+            clients: 'Harry Potter'
+        },
+        {
+            wood: 'Hornbeam',
+            core: 'Dragon Heartstring',
+            image: 'https://static.wikia.nocookie.net/harrypotter/images/a/a3/ViktorKrumWand.jpg/revision/latest?cb=20141208235231',
+            price: 5,
+            qty: 5, 
+            clients: 'Viktor Krum'
+        },
+        {
+            wood: 'Mahogany',
+            core: 'Phoenix Feather',
+            image: 'https://static.wikia.nocookie.net/harrypotter/images/a/a5/JamesPotterWand_NN8206.jpg/revision/latest?cb=20141208234732',
+            price: 5,
+            qty: 5, 
+            clients: 'James Potter'
+        },
+        {
+            wood: 'Rosewood',
+            core: 'Veela Hair',
+            image: 'https://static.wikia.nocookie.net/harrypotter/images/1/12/FleurDelacourWandNN8246.jpg/revision/latest?cb=20140602200656',
+            price: 5,
+            qty: 5, 
+            clients: 'Fleur Delacour'
+        },
+        {
+            wood: 'Vine',
+            core: 'Dragon Heartstring',
+            image: 'https://static.wikia.nocookie.net/harrypotter/images/c/c6/HermioneGrangerWandNN8411.jpg/revision/latest?cb=20140602200406',
+            price: 5,
+            qty: 5, 
+            clients: 'Hermione Granger'
+        },
+        {
+            wood: 'Walnut',
+            core: 'Dragon Heartstring',
+            image: 'https://static.wikia.nocookie.net/harrypotter/images/c/c3/Bellatrix_lestrange_wand.jpg/revision/latest?cb=20150613214534',
+            price: 5,
+            qty: 5, 
+            clients: 'Bellatrix Lestrange'
+        },
+        {
+            wood: 'Willow',
+            core: 'Phoenix Feather',
+            image: 'https://static.wikia.nocookie.net/harrypotter/images/6/62/RonWeasleyWandNN8413.jpg/revision/latest?cb=20141208232815',
+            price: 5,
+            qty: 5, 
+            clients: 'Lily Evans'
+        },
+        {
+            wood: 'Willow',
+            core: 'Unicorn Hair',
+            image: 'https://static.wikia.nocookie.net/harrypotter/images/6/62/RonWeasleyWandNN8413.jpg/revision/latest?cb=20141208232815',
+            price: 5,
+            qty: 5, 
+            clients: 'Ronald Weasley'
+        },
+        {
+            wood: 'Yew',
+            core: 'Phoenix Feather',
+            image: 'https://static.wikia.nocookie.net/harrypotter/images/1/13/Lord_Voldemort%27s_wand.jpg/revision/latest?cb=20141208232950',
+            price: 5,
+            qty: 5, 
+            clients: 'Tom Riddle',  
+        },
+        {
+            wood: 'Yew',
+            core: 'Phoenix Feather',
+            image: 'https://static.wikia.nocookie.net/harrypotter/images/0/0c/Ginny%27s_wand.jpg/revision/latest?cb=20141208233945',
+            price: 5,
+            qty: 5, 
+            clients: 'Ginevra Weasley',  
+        },
     ], (err, data)=>{
         res.redirect('/wands')
     })
 })
-
-
-
-// wood: {type: String, required: true},
-//     feather: {type: String, required: true},
-//     image: String,
-//     price: { type: Number, minimum: 0},
-//     qty: { type: Number, minimum: 0}
 
 //INTERNAL ROUTES
 app.use("/wands/seed", (req, res)=>{
@@ -176,6 +248,10 @@ app.use("/wands/seed", (req, res)=>{
 app.listen(PORT, function(){
     console.log(`Open for Business! 🏪${PORT}`)
 });
+
+
+//I used the below source for the wands' information and images.
+//https://harrypotter.fandom.com/wiki/Wand_wood
 
 //const inventory = require('./models/index.js');
 //QUESTION: where does this go in teh above order?
