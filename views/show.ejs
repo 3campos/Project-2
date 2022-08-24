@@ -17,7 +17,20 @@
         <span id = 'wandImg'><img src=<%=allWands.img%>/></span><br/>
         <span id = 'wandPrice'><%='Price: '+allWands.price+' Galleons'%></span><br/>
         <span id = 'wandQty'><%='Number in stock: '+allWands.qty%></span><br/>
-        <span id = 'wandQty'><%='Previous buyers: '+allWands.clients%></span><br/>
+        <span id = 'previousClients'><%='Previous buyers: '+allWands.clients%></span><br/>
+
+
+        <% if(allWands.qty > 0) {%>
+            <!-- //starting with an if conditional: if the wand's stock (or qty) is greater than 0, then the following will execute. -->
+            <button>
+                Sell
+                <a href = "/wands/<%=id%>/sell?_method=PUT" method="POST"></a>
+
+            </button>
+        <%} else {%>
+            <button class = 'unclickable'>Out of stock</button>
+        <%}%>
+
     </div>
         <form action="/wands/<%=id%>?_method=DELETE" method="POST">
         <input type ="submit" value="Delete"/>
@@ -25,7 +38,6 @@
 </div>
 
 <a href="/wands/<%=id%>/edit">Edit Wand</a>
-
 
 </body>
 </html>

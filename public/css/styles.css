@@ -1,3 +1,7 @@
 body {
     color: green;
 }
+
+.unclickable{
+    pointer-events: none;
+}
