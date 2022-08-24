@@ -88,20 +88,21 @@ app.get('/wands/:id', (req, res)=>{
 
 //what i'm trying to accomplish with the below code is decrease the quantity of the wand by 1. I tried this another way (see above commented out code) but that did not work.
     //My set up seems correct but nothing is happening to the wand's quantity (that is, it's not decreasing). Am I missing something here?
-app.get('/wands/:id/sell', (req, res)=>{
+app.put('/wands/:id/sell', (req, res)=>{
     console.log('wand sell triggered')
     //the above line is a route to the sell page. The button that invokes this route is contained in the show.ejs page.
     Wands.findByIdAndUpdate({id: req.params.id},(err) => {
+        //findByIdAndUpdate is for databases
         //the above code finds the id, here the show page route for the wand being shown
-        let wandQty = Wands.qty
-        wandQty--
+        Wands.qty -= 1
         //the wand's quantity is decreased by 1
         res.redirect('/wands')
+            //res.redirect is okay here but I need to find the route that I will redirect to. Here, it would be the same page.
         //the page will redirect to the wands index page.
         })
     })
 
-//add put route
+//PUT ROUTE
 app.put('/wands/:id', (req, res)=>{
     console.log('put route', req.body)
     if(req.body.readyToSubmit === 'on'){
@@ -109,7 +110,7 @@ app.put('/wands/:id', (req, res)=>{
     } else {
         req.body.readyToSubmit = false
     }
-    wands[req.params.id]=req.body
+    Wands[req.params.id]=req.body
     res.redirect('/wands')
 })
 

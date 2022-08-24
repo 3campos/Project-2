@@ -1,8 +1,12 @@
+// db.ollivanders.insertOne[
+//     {wood: 'Ash', core: 'Unicorn Hair', img: 'https://i.imgur.com/Fk6GEyF.jpg', price: 4, qty: 5,clients: 'Ron Weasley'
+//     }]
+
 const wands = [{
     wood: 'Ash',
     core: 'Unicorn Hair',
     img: 'https://i.imgur.com/Fk6GEyF.jpg',
-    price: 4,
+    price: 4,    
     qty: 5,
     clients: 'Ron Weasley'
 },

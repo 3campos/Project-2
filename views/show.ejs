@@ -22,11 +22,11 @@
 
         <% if(allWands.qty > 0) {%>
             <!-- //starting with an if conditional: if the wand's stock (or qty) is greater than 0, then the following will execute. -->
+            <form action="/wands/<%=id%>/sell?_method=PUT" method="POST">
             <button>
                 Sell
-                <a href = "/wands/<%=id%>/sell?_method=PUT" method="POST"></a>
-
             </button>
+            </form>
         <%} else {%>
             <button class = 'unclickable'>Out of stock</button>
         <%}%>
