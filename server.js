@@ -41,7 +41,8 @@ app.use(express.static("public"))
 //const { render } displays any  elements from the ejs that I create on the webpage.
 
 //SET UP MONGOOSE (added)
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const { db } = require("./models/Wand.js");
 const mongoURI = process.env.MONGODB_URI
 mongoose.connect(mongoURI)
 mongoose.connection.once('open', ()=> {
@@ -59,7 +60,7 @@ app.get("/", (req, res) => {
     res.render("home");
 });
 
-//Index 
+//INDEX 
 
 app.get("/wands", (req, res)=>{
     res.render('index.ejs', {
@@ -67,7 +68,7 @@ app.get("/wands", (req, res)=>{
 })
 
 
-//show route
+//SHOW ROUTE
 app.get('/wands/:id', (req, res)=>{
     const thisWand = Wands[req.params.id]
         res.render('show.ejs', {
@@ -78,25 +79,18 @@ app.get('/wands/:id', (req, res)=>{
         })
 })
 
-//Put route/Sell route
-// app.get('/wands/:id/sell', (req, res)=>{
-//     allWands.findByIdAndUpdate(req.params.id, {$inc:{qty:-1}}, (err) => {
-//         res.redirect('/wands')
-//         })
-//     })
-
-
-//what i'm trying to accomplish with the below code is decrease the quantity of the wand by 1. I tried this another way (see above commented out code) but that did not work.
+//what i'm trying to accomplish with the below code is decrease the quantity of the wand by 1.
     //My set up seems correct but nothing is happening to the wand's quantity (that is, it's not decreasing). Am I missing something here?
+//PUT ROUTE
 app.put('/wands/:id/sell', (req, res)=>{
     console.log('wand sell triggered')
     //the above line is a route to the sell page. The button that invokes this route is contained in the show.ejs page.
-    Wands.findByIdAndUpdate({id: req.params.id},(err) => {
+    db.Wands.findByIdAndUpdate({id: req.params.id},(err) => {
         //findByIdAndUpdate is for databases
         //the above code finds the id, here the show page route for the wand being shown
         Wands.qty -= 1
         //the wand's quantity is decreased by 1
-        res.redirect('/wands')
+        res.redirect('/wands/:id/sell')
             //res.redirect is okay here but I need to find the route that I will redirect to. Here, it would be the same page.
         //the page will redirect to the wands index page.
         })
@@ -114,34 +108,12 @@ app.put('/wands/:id', (req, res)=>{
     res.redirect('/wands')
 })
 
-// seed
-// app.get('/wands/seed', (req, res)=>{
-//     Wand.create([
-//         {
-//     wood: 'Yew',
-//     core: 'Phoenix Feather',
-//     img: 'https://static.wikia.nocookie.net/harrypotter/images/1/13/Lord_Voldemort%27s_wand.jpg/revision/latest?cb=20141208232950',
-//     price: 5,
-//     qty: 5, 
-//     clients: 'Tom Riddle',  
-// },
-//     ], (err, data)=>{
-//         res.redirect('/wands')
-//     })
-// })
+//NEW ROUTE
+app.get('/wands/new', (req, res) => {
+    res.render('new.ejs')
+})
 
-//The instructions for project 2 say nothing about whether the seeding of databases is required for our project. Is seeding required? Not required for this project.
-
-//I reviewed the class video for seeding databases from week 12 (8/13).
-    //the purpose of seeding data is pushing additional array objects into an array that lives in a database, correct? The most common case when we're moving to the cloud infrastructure, for example, from a physical database.
-//For project 2, do I have to have my array of objects in two places? Is the first place in my models and the second place a database using mongo?
-        //Yes. Get the atlas account set up.
-    //am I copying and pasting from my wands.js model file into my terminal or am I going to use my terminal to grab the array from my wands.js file? It feels like i'm duplicating my work.
-
-//INTERNAL ROUTES
-// app.use("/wands/seed", (req, res)=>{
-//     Wand.create([])
-// })
+//CREATE ROUTE
 
 
 

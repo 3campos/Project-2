@@ -53,3 +53,39 @@ Stretch Goals
 
 Links:
 https://github.com/3campos/Project-2/blob/main/README.md
+
+When done, do: git push heroku main
+
+To see all errors and push history to heroku, run: 
+heroku logs --tail
+
+
+
+// seed
+// app.get('/wands/seed', (req, res)=>{
+//     Wand.create([
+//         {
+//     wood: 'Yew',
+//     core: 'Phoenix Feather',
+//     img: 'https://static.wikia.nocookie.net/harrypotter/images/1/13/Lord_Voldemort%27s_wand.jpg/revision/latest?cb=20141208232950',
+//     price: 5,
+//     qty: 5, 
+//     clients: 'Tom Riddle',  
+// },
+//     ], (err, data)=>{
+//         res.redirect('/wands')
+//     })
+// })
+
+//The instructions for project 2 say nothing about whether the seeding of databases is required for our project. Is seeding required? Not required for this project.
+
+//I reviewed the class video for seeding databases from week 12 (8/13).
+    //the purpose of seeding data is pushing additional array objects into an array that lives in a database, correct? The most common case when we're moving to the cloud infrastructure, for example, from a physical database.
+//For project 2, do I have to have my array of objects in two places? Is the first place in my models and the second place a database using mongo?
+        //Yes. Get the atlas account set up.
+    //am I copying and pasting from my wands.js model file into my terminal or am I going to use my terminal to grab the array from my wands.js file? It feels like i'm duplicating my work.
+
+//INTERNAL ROUTES
+// app.use("/wands/seed", (req, res)=>{
+//     Wand.create([])
+// })

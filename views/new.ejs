@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Wand</title>
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+
+</head>
+
+<body>
+    <div class = 'container'>
+        <form action = "/wands" method="POST">
+
+            <label for = "wood"></label>
+            <input type = "text" name="wood" placeholder="wood" id="wood"/>
+
+            <label for = "core"></label>
+            <input type = "text" name="core" placeholder="core" id="core"/>
+
+            <label for = "price"></label>
+            <input type = "text" name="price" placeholder="price" id="price"/>
+
+            <label for = "qty"></label>
+            <input type = "text" name="qty" placeholder="qty" id="qty"/>
+
+            <label for = "clients"></label>
+            <input type = "text" name="clients" placeholder="qty" id="qty"/>
+
+            <label for = "img"></label>
+            <input type = "text" name="img" id="img">
+
+            <label for = "readyToSubmit">Ready</label>
+            <input type = "checkbox" name = "readyToSubmit" id ="readyToSubmit"/><br>
+            <input type = "submit" name = "readyToSubmit" value = "Add New Wand"/>
+            
+        </form>
+    </div>
+</body>
+</html>
