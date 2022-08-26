@@ -16,7 +16,7 @@ router.get("/", (req, res) => {
     db.Wand.find()
     .then((results) => {
         const context = {allWands: results}
-        res.render("wands/index.ejs", context)
+        res.render("views/index.ejs", context)
     })
 })
 

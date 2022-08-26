@@ -8,8 +8,8 @@ const session = require('express-session')
 //REQUIRE MODELS HERE (added):
 
 const { render } = require('ejs');
-const Wand = require('./models/Wands.js')
-// const Wands = require("./models/Wands.js")
+const Wand = require('./models/wandsDatabase.js')
+// const Wands = require("./models/wandsDatabase.js")
 
 //INTERNAL MODULES
 const testCtrl = require("./controllers/testRoute.js")
@@ -42,7 +42,7 @@ app.use(express.static("public"))
 
 //SET UP MONGOOSE (added)
 const mongoose = require('mongoose');
-const { db } = require("./models/Wands.js");
+const { db } = require("./models/wandsDatabase.js");
 const mongoURI = process.env.MONGODB_URI
 mongoose.connect(mongoURI)
 mongoose.connection.once('open', ()=> {
@@ -154,7 +154,7 @@ app.get('/wands/:id', (req, res)=>{
 
 
 //Internal Routes
-app.use("/posts", testCtrl);
+app.use("/wands", testCtrl);
 //whenever the user goes to /wands, the testCtrl will be imported. That is where we're bringing the database to be read by the server.
 
 

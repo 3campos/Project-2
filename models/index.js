@@ -10,6 +10,6 @@ mongoose
                         
 module.exports = {
                     //👇this has to match the schema file.
-    Wand:require('./Wands.js')
+    Wand:require('./wandsDatabase.js')
     //👆this has to match the wands.js module.export word.
 }

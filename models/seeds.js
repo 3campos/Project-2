@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Wand = require('./models/Wands.js');
+const Wand = require('./wandsDatabase.js');
 
 mongoose
 .connect(process.env.PORT)
@@ -8,7 +8,8 @@ mongoose
     console.log(err)
 })
 
-const seedWands = [{
+const seedWands = [
+    {
     wood: 'Ash',
     core: 'Unicorn Hair',
     img: 'https://i.imgur.com/Fk6GEyF.jpg',
@@ -175,7 +176,8 @@ const seedWands = [{
     price: 5,
     qty: 5, 
     clients: 'Ginevra Weasley',  
-}]
+}
+]
 
 const seedDB = async() => {
     await Wand.deleteMany({});
