@@ -8,8 +8,8 @@ const session = require('express-session')
 //REQUIRE MODELS HERE (added):
 
 const { render } = require('ejs');
-const Wand = require('./models/Wand.js')
-const Wands = require("./models/Wands.js")
+const Wand = require('./models/Wands.js')
+// const Wands = require("./models/Wands.js")
 
 //INTERNAL MODULES
 const testCtrl = require("./controllers/testRoute.js")
@@ -42,7 +42,7 @@ app.use(express.static("public"))
 
 //SET UP MONGOOSE (added)
 const mongoose = require('mongoose');
-const { db } = require("./models/Wand.js");
+const { db } = require("./models/Wands.js");
 const mongoURI = process.env.MONGODB_URI
 mongoose.connect(mongoURI)
 mongoose.connection.once('open', ()=> {
@@ -61,63 +61,101 @@ app.get("/", (req, res) => {
 });
 
 //INDEX 
-
 app.get("/wands", (req, res)=>{
-    res.render('index.ejs', {
-        allWands: Wands}); 
+    Wand.find({}, (error, allWands) => {
+        res.render('index.ejs', {
+             wands: allWands
+            }); 
+            console.log('logging allWands', allWands)//this logs as "allWands is not defined"
+    })
+         
 })
 
+//NEW ROUTE
+    // always put the new route above the show route
+app.get('/wands/new', (req, res) => {
+    res.render('new.ejs')
+})
 
 //SHOW ROUTE
 app.get('/wands/:id', (req, res)=>{
-    const thisWand = Wands[req.params.id]
+    Wand.findById(req.params.id, (error, wand)=>{
         res.render('show.ejs', {
-            allWands: thisWand,
+            wand: wand,
             //the request that we're making here is getting the param. The id is what is being passed in.
-            id: req.params.id
             //we stored the id in its own variable that we can interpolate the variable into a delete route.
         })
+    })
 })
 
 //what i'm trying to accomplish with the below code is decrease the quantity of the wand by 1.
     //My set up seems correct but nothing is happening to the wand's quantity (that is, it's not decreasing). Am I missing something here?
 //PUT ROUTE
-app.put('/wands/:id/sell', (req, res)=>{
-    console.log('wand sell triggered')
-    //the above line is a route to the sell page. The button that invokes this route is contained in the show.ejs page.
-    db.Wands.findByIdAndUpdate({id: req.params.id},(err) => {
-        //findByIdAndUpdate is for databases
-        //the above code finds the id, here the show page route for the wand being shown
-        Wands.qty -= 1
-        //the wand's quantity is decreased by 1
-        res.redirect('/wands/:id/sell')
-            //res.redirect is okay here but I need to find the route that I will redirect to. Here, it would be the same page.
-        //the page will redirect to the wands index page.
-        })
-    })
+// app.put('/wands/:id/sell', (req, res)=>{
+//     console.log('wand sell triggered')
+//     //the above line is a route to the sell page. The button that invokes this route is contained in the show.ejs page.
+//     Wand.findByIdAndUpdate({id: req.params.id},(err) => {
+//         //findByIdAndUpdate is for databases
+//         //the above code finds the id, here the show page route for the wand being shown
+//         Wand.qty -= 1
+//         //the wand's quantity is decreased by 1
+//         res.redirect('/wands/:id/sell')
+//             //res.redirect is okay here but I need to find the route that I will redirect to. Here, it would be the same page.
+//         //the page will redirect to the wands index page.
+//         })
+//     })
 
 //PUT ROUTE
-app.put('/wands/:id', (req, res)=>{
-    console.log('put route', req.body)
-    if(req.body.readyToSubmit === 'on'){
-        req.body.readyToSubmit = true
-    } else {
-        req.body.readyToSubmit = false
-    }
-    Wands[req.params.id]=req.body
-    res.redirect('/wands')
-})
+// app.put('/wands/:id', (req, res)=>{
+//     console.log('put route', req.body)
+//     if(req.body.readyToSubmit === 'on'){
+//         req.body.readyToSubmit = true
+//     } else {
+//         req.body.readyToSubmit = false
+//     }
+//     Wand[req.params.id]=req.body
+//     res.redirect('/wands')
+// })
 
-//NEW ROUTE
-app.get('/wands/new', (req, res) => {
-    res.render('new.ejs')
-})
+// //CREATE ROUTE
+// app.post('/wands', (req, res)=>{
+//     if(req.body.readyToSubmit === 'on'){
+//         req.body.readyToSubmit = true
+//     } else {
+//         req.body.readyToSubmit = false
+//     }
 
-//CREATE ROUTE
+//     Wand.create(req.body, (error, createdWand) {
+//         if(error) {
+//             console.log(error);
+//             res.send(error);
+//         } else {
+//             res.redirect('/wands')
+//         }
+//     })
+// })
+
+//DESTROY
+// app.delete('/wands/:id', (req, res)=>{
+//     Wands.splice(req.params.id, 1)
+//     res.redirect('/wands')
+//   }
+//   )
+
+//EDIT route=set up similarly to the show page.
+//access the pokemon by the index
+  //but also have a variable of the id like what we've done for the show route.
+// app.get('/wands/:id/edit', (req, res) => {
+//     res.render('edit.ejs', {
+//         allWands: Wands[req.params.id],
+//         id: req.params.id
+//     })
+// })
 
 
-
-
+//Internal Routes
+app.use("/posts", testCtrl);
+//whenever the user goes to /wands, the testCtrl will be imported. That is where we're bringing the database to be read by the server.
 
 
 //SERVER LISTENER

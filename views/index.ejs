@@ -13,36 +13,20 @@
     <a href="/wands">Ollivanders Inventory</a>
     <ul>
       <li><a href="/">Home</a></li>
-      <li><a href="/wands">Wands</a></li>
     </ul>
-    <div class = 'container'></div>
+  </div>
+    <div class = 'container'>
     <table id = tableOfWandsIndex>
-        <% for(let i=0; i<allWands.length; i++){ %>
-            <tr>
-                    
-                    <td><%let firstLetCap=allWands[i].wood.charAt(0).toUpperCase()%>          
-                    </td>
-                    
-                    <td>
-                    <a href="/wands/<%=i%>">
-                        <%= firstLetCap + allWands[i].wood.slice(1)%>
-                    </a>
-                    </td>
+      <tr>  
+        <% for(let i=0; i<wands.length; i++){ %>
 
-                    <td><%= allWands[i].price + ' Galleons' %>
-                    </td>
-                    
-                    <td><%=allWands[i].core%>
-                    </td>
+          <td id="wandsCore">
+            <a href= "/wands/<%=wands[i].id%>"> <%=wands[i].core%>
+            </a>
+          </td>
 
-                    <td id = 'editButton'><%='EDIT BUTTON'%></td>
-
-                    <td id = 'deleteButton'><%='DELETE BUTTON'%></td>
-
-                    <td id = 'stockStatus'><%='STOCK STATUS'%></td>
-
-            </tr>
-        <% } %>
+      <% } %>
+      </tr>
     </table>
   </div>
 </body>

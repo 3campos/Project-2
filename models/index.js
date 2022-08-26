@@ -7,8 +7,9 @@ mongoose
     console.log(`Mongodb connected at ${db.host}:${db.port}`)
 })
 .catch((err)=>console.log(err))
-
+                        
 module.exports = {
-    Post:require('./Wand')
+                    //👇this has to match the schema file.
+    Wand:require('./Wands.js')
+    //👆this has to match the wands.js module.export word.
 }
-//by requiring with the line: post:require('./post'), is the above module reaching into post.js and getting the module from there?
