@@ -127,7 +127,7 @@ app.put('/wands/:id/sell', (req, res)=>{
         })
     })
 
-// //CREATE ROUTE
+//CREATE ROUTE
 app.post('/wands', (req, res)=>{
     if(req.body.readyToSubmit === 'on'){
         req.body.readyToSubmit = true
