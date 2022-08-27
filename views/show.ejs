@@ -12,17 +12,16 @@
 <body>
 <div class = 'container'>
     <div>
-        <span id = 'wandWood'><%='Wood: '+allWands.wood%></span><br/>
-        <span id = 'wandCore'><%='Core: '+allWands.core%></span><br/>
-        <span id = 'wandImg'><img src=<%=allWands.img%>/></span><br/>
-        <span id = 'wandPrice'><%='Price: '+allWands.price+' Galleons'%></span><br/>
-        <span id = 'wandQty'><%='Number in stock: '+allWands.qty%></span><br/>
-        <span id = 'previousClients'><%='Previous buyers: '+allWands.clients%></span><br/>
+        <span id = 'wandWood'><%='Wood: '+wand.wood%></span><br/>
+        <span id = 'wandCore'><%='Core: '+wand.core%></span><br/>
+        <span id = 'wandImg'><img src=<%=wand.img%>/></span><br/>
+        <span id = 'wandPrice'><%='Price: '+wand.price+' Galleons'%></span><br/>
+        <span id = 'wandQty'><%='Number in stock: '+wand.qty%></span><br/>
+        <span id = 'previousClients'><%='Previous buyers: '+wand.clients%></span><br/>
 
-
-        <% if(allWands.qty > 0) {%>
+         <% if(wand.qty > 0) {%>
             <!-- //starting with an if conditional: if the wand's stock (or qty) is greater than 0, then the following will execute. -->
-            <form action="/wands/<%=id%>/sell?_method=PUT" method="POST">
+            <form action="/wands/<%=wand.id%>/sell?_method=PUT" method="POST">
             <button>
                 Sell
             </button>
@@ -32,12 +31,13 @@
         <%}%>
 
     </div>
-        <form action="/wands/<%=id%>?_method=DELETE" method="POST">
+        <form action="/wands/<%=wand.id%>?_method=DELETE" method="POST">
         <input type ="submit" value="Delete"/>
         </form>
 </div>
 
-<a href="/wands/<%=id%>/edit">Edit Wand</a>
+<a href="/wands/<%=wand.id%>/edit">Edit Wand</a>
+       
 
 </body>
 </html>

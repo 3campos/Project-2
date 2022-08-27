@@ -1,8 +1,29 @@
+const dotenv = require("dotenv");
+dotenv.config();
+//to invoke the env file in this seeds.js file, I learned that I needed to require it here at the top of my file in addition to including it in my server.js. 
+    //This resolved the error I was having in my terminal: 
+    /*emiliocamposjr@darkhold Project-2 % node seeds.js                                           
+    node:internal/modules/cjs/loader:958
+    throw err;
+    ^
+
+    Error: Cannot find module '/Users/emiliocamposjr/sei-cosmos/homeworks/Project-2/seeds.js'
+    at Module._resolveFilename (node:internal/modules/cjs/loader:955:15)
+    at Module._load (node:internal/modules/cjs/loader:803:27)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
+    at node:internal/main/run_main_module:18:47 {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: []
+    }
+
+    Node.js v18.8.0 */
+    //SOURCE: https://stackoverflow.com/questions/51770772/mongoose-connect-first-argument-should-be-string-received-undefined
+
 const mongoose = require('mongoose');
 const Wand = require('./wandsDatabase.js');
 
 mongoose
-.connect(process.env.PORT)
+.connect(process.env.MONGODB_URI)
 .then(()=>{console.log('MONGO CONNECTION OPEN!!!')})
 .catch((err)=>{
     console.log(err)
@@ -188,3 +209,4 @@ seedDB().then(()=>{
     mongoose.connection.close();
 })
 
+//why isn't process env converting to a string? TO RESEARCH! 
