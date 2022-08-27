@@ -8,22 +8,22 @@
 
 </head>
 <body>
-        <form action="/wands/<%=id%>?_method=PUT" method="POST">
+        <form action="/wands/<%=wand.id%>?_method=PUT" method="POST">
         
         <label for="wood">Wood</label>
-        <input type="text" name="wood" id="wood" value="<%=allWands.wood%>"/>
+        <input type="text" name="wood" id="wood" value="<%=wand.wood%>"/>
 
         <label for="img"></label>
-        <input type="img" name="img" id="img" value = "<%=allWands.img%>"/>
+        <input type="img" name="img" id="img" value = "<%=wand.img%>"/>
 
         <label for="price"></label>
-        <input type="text" name="price" id="price" value = "<%=allWands.price%>"/>
+        <input type="text" name="price" id="price" value = "<%=wand.price%>"/>
 
         <label for="qty"></label>
-        <input type="text" name="qty" id="qty" value = "<%=allWands.qty%>"/>
+        <input type="text" name="qty" id="qty" value = "<%=wand.qty%>"/>
 
         <label for="clients"></label>
-        <input type="text" name="clients" id="clients" value = "<%=allWands.clients%>"/>
+        <input type="text" name="clients" id="clients" value = "<%=wand.clients%>"/>
 
         <label for="readyToSubmit">Ready to Submit</label>
         <input type="checkbox" name="readyToSubmit" id="readyToSubmit"

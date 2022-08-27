@@ -153,16 +153,16 @@ app.post('/wands', (req, res)=>{
 //   }
 //   )
 
-//EDIT route=set up similarly to the show page.
-//access the pokemon by the index
-  //but also have a variable of the id like what we've done for the show route.
-// app.get('/wands/:id/edit', (req, res) => {
-//     res.render('edit.ejs', {
-//         allWands: Wands[req.params.id],
-//         id: req.params.id
-//     })
-// })
-
+// EDIT route=set up similarly to the show page.
+//   but also have a variable of the id like what we've done for the show route.
+app.get('/wands/:id/edit', (req, res) => {
+    Wand.findById(req.params.id, (err, wand) => {
+    // console.log(wand)
+    res.render('edit.ejs', {
+        wand: wand,
+        })
+    })
+})
 
 //Internal Routes
 app.use("/wands", testCtrl);
