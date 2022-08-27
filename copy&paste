@@ -1,0 +1,19 @@
+For show page: 
+
+<span id = 'wandWood'><%='Wood: '+showWand.wood%></span><br/>
+        <span id = 'wandCore'><%='Core: '+showWand.core%></span><br/>
+        <span id = 'wandImg'><img src=<%=showWand.img%>/></span><br/>
+        <span id = 'wandPrice'><%='Price: '+showWand.price+' Galleons'%></span><br/>
+        <span id = 'wandQty'><%='Number in stock: '+showWand.qty%></span><br/>
+        <span id = 'previousClients'><%='Previous buyers: '+showWand.clients%></span><br/>
+
+         <% if(wand.qty > 0) {%>
+            <!-- //starting with an if conditional: if the wand's stock (or qty) is greater than 0, then the following will execute. -->
+            <form action="/wands/<%=wand.id%>/sell?_method=PUT" method="POST">
+            <button>
+                Sell
+            </button>
+            </form>
+        <%} else {%>
+            <button class = 'unclickable'>Out of stock</button>
+        <%}%>

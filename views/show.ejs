@@ -11,33 +11,26 @@
 
 <body>
 <div class = 'container'>
-    <div>
-        <span id = 'wandWood'><%='Wood: '+wand.wood%></span><br/>
-        <span id = 'wandCore'><%='Core: '+wand.core%></span><br/>
-        <span id = 'wandImg'><img src=<%=wand.img%>/></span><br/>
-        <span id = 'wandPrice'><%='Price: '+wand.price+' Galleons'%></span><br/>
-        <span id = 'wandQty'><%='Number in stock: '+wand.qty%></span><br/>
-        <span id = 'previousClients'><%='Previous buyers: '+wand.clients%></span><br/>
+    <span id = 'wandWood'><%='Wood: '+wand.wood%></span><br/>
+    <span id = 'wandCore'><%='Core: '+wand.core%></span><br/>
+    <span id = 'wandImg'><img src=<%=wand.img%>/></span><br/>
+    <span id = 'wandPrice'><%='Price: '+wand.price+' Galleons'%></span><br/>
+    <span id = 'wandQty'><%='Number in stock: '+wand.qty%></span><br/>
+    <span id = 'previousClients'><%='Previous buyers: '+wand.clients%></span><br/>
+    <span id = 'readyToSubmit'><%='Ready to Submit: '+wand.readyToSubmit%></span><br/>
 
-         <% if(wand.qty > 0) {%>
-            <!-- //starting with an if conditional: if the wand's stock (or qty) is greater than 0, then the following will execute. -->
-            <form action="/wands/<%=wand.id%>/sell?_method=PUT" method="POST">
-            <button>
-                Sell
-            </button>
-            </form>
-        <%} else {%>
-            <button class = 'unclickable'>Out of stock</button>
-        <%}%>
-
-    </div>
-        <form action="/wands/<%=wand.id%>?_method=DELETE" method="POST">
-        <input type ="submit" value="Delete"/>
+     <% if(wand.qty > 0) {%>
+        <!-- //starting with an if conditional: if the wand's stock (or qty) is greater than 0, then the following will execute. -->
+        <form action="/wands/<%=wand.id%>/sell?_method=PUT" method="POST">
+        <button>
+            Sell
+        </button>
         </form>
-</div>
+    <%} else {%>
+        <button class = 'unclickable'>Out of stock</button>
+    <%}%>
 
-<a href="/wands/<%=wand.id%>/edit">Edit Wand</a>
-       
+       </div>
 
 </body>
 </html>

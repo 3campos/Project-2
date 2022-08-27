@@ -43,8 +43,11 @@ User stories detailing app functionality
 Add user stories following the As a [type of user], I want [what the user wants], so that [what it helps accomplish] format.
 
 As a wand-shop owner, I want to have an index of all of my wand wood-types and their stock status, so that I can see easily what wands are available for sale and whether I need to construct more.
+
 As a wand-shop owner, I want to have a page showing each wand's information, including wood-type, feather-type, wand quantity in stock, price and who I've sold the wand to because knowing this information is critical to do business.
+
 As a wand-shop owner, I want to have a page to add a new wand type to my inventory so that I can have the ability to account for new wands that I construct to restock my supply.
+
 As a wand-shop owner, I want to have a page where I can edit details for each wand so that I can correct any mistakes or mark a wand as sold.
 
 Stretch Goals

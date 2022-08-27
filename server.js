@@ -79,61 +79,72 @@ app.get('/wands/new', (req, res) => {
 
 //SHOW ROUTE
 app.get('/wands/:id', (req, res)=>{
-    Wand.findById(req.params.id, (error, wand)=>{
+    Wand.findById(req.params.id, (err, wand) => {
+        //req=click
+        //params=getting the id of this wand that i've clicked on.
+        //aside: whenever we console.log, we're logging the params.
         res.render('show.ejs', {
-            wand: wand,
+            wand: wand
+            //this is creating a variable here named wand. Then I can use the variable within the route. 
             //the request that we're making here is getting the param. The id is what is being passed in.
             //we stored the id in its own variable that we can interpolate the variable into a delete route.
-        })
+        }) 
     })
 })
 
+//PUT ROUTE
+app.put('/wands/:id', (req, res)=>{
+    Wand.findByIdAndUpdate({id: req.params.id}, req.body, (err) => {
+    console.log('put route', req.body)
+    if(req.body.readyToSubmit === 'on'){
+        req.body.readyToSubmit = true
+    } else {
+        req.body.readyToSubmit = false
+    }
+    res.redirect('/wands')
+    })
+})
+
+//SELL ROUTE
 //what i'm trying to accomplish with the below code is decrease the quantity of the wand by 1.
     //My set up seems correct but nothing is happening to the wand's quantity (that is, it's not decreasing). Am I missing something here?
-//PUT ROUTE
-// app.put('/wands/:id/sell', (req, res)=>{
-//     console.log('wand sell triggered')
-//     //the above line is a route to the sell page. The button that invokes this route is contained in the show.ejs page.
-//     Wand.findByIdAndUpdate({id: req.params.id},(err) => {
-//         //findByIdAndUpdate is for databases
-//         //the above code finds the id, here the show page route for the wand being shown
-//         Wand.qty -= 1
-//         //the wand's quantity is decreased by 1
-//         res.redirect('/wands/:id/sell')
-//             //res.redirect is okay here but I need to find the route that I will redirect to. Here, it would be the same page.
-//         //the page will redirect to the wands index page.
-//         })
-//     })
 
 //PUT ROUTE
-// app.put('/wands/:id', (req, res)=>{
-//     console.log('put route', req.body)
-//     if(req.body.readyToSubmit === 'on'){
-//         req.body.readyToSubmit = true
-//     } else {
-//         req.body.readyToSubmit = false
-//     }
-//     Wand[req.params.id]=req.body
-//     res.redirect('/wands')
-// })
+app.put('/wands/:id/sell', (req, res)=>{
+    console.log('wand sell triggered', req.params)
+                                        //👆grabs the wand
+    //the above line is a route to the sell page. The button that invokes this route is contained in the show.ejs page.
+    Wand.findByIdAndUpdate(req.params.id, {$inc: {qty: -1}}, (err, qty) => {
+        console.log('wand sell triggered 2')
+        //findByIdAndUpdate is for databases
+        //the above code finds the id, here the show page route for the wand being shown
+        //this will no longer work: Wand.qty -=1
+        //create a function that grabs the existing quantity and then returns the quantity -1, and then push the result to the database
+        //the wand's quantity is decreased by 1
+        res.redirect(`/wands/${req.params.id}`)
+            //res.redirect is okay here but I need to find the route that I will redirect to. Here, it would be the same page.
+        //the page will redirect to the wands index page.
+        })
+    })
 
 // //CREATE ROUTE
-// app.post('/wands', (req, res)=>{
-//     if(req.body.readyToSubmit === 'on'){
-//         req.body.readyToSubmit = true
-//     } else {
-//         req.body.readyToSubmit = false
-//     }
+app.post('/wands', (req, res)=>{
+    if(req.body.readyToSubmit === 'on'){
+        req.body.readyToSubmit = true
+    } else {
+        req.body.readyToSubmit = false
+    }
 
-//     Wand.create(req.body, (error, createdWand) {
-//         if(error) {
-//             console.log(error);
-//             res.send(error);
-//         } else {
-//             res.redirect('/wands')
-//         }
-//     })
-// })
+    Wand.create(req.body, (err, createdWand) => {
+        if(err) {
+            console.log(err)
+            res.send(err)
+        } 
+        else {
+            res.redirect('/wands')
+        }
+    })
+})
 
 //DESTROY
 // app.delete('/wands/:id', (req, res)=>{
@@ -169,5 +180,3 @@ app.listen(PORT, function(){
 
 //const inventory = require('./models/index.js');
 //QUESTION: where does this go in teh above order?
-
-

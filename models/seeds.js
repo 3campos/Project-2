@@ -36,7 +36,8 @@ const seedWands = [
     img: 'https://i.imgur.com/Fk6GEyF.jpg',
     price: 4,    
     qty: 5,
-    clients: 'Ron Weasley'
+    clients: 'Ron Weasley',
+    readyToSubmit: true
 },
 {
     wood: 'Alder',
@@ -44,7 +45,8 @@ const seedWands = [
     img: 'https://static.wikia.nocookie.net/harrypotter/images/b/bd/Alder.png',
     price: 6,
     qty: 5,
-    clients: 'Quirinus Quirrell'
+    clients: 'Quirinus Quirrell',
+    readyToSubmit: true
 },
 {
     wood: 'Birch',
@@ -52,7 +54,8 @@ const seedWands = [
     img: 'https://static.wikia.nocookie.net/harrypotter/images/b/b1/Ash.png',
     price: 7,
     qty: 5, 
-    clients: 'Dolores Umbridge'
+    clients: 'Dolores Umbridge',
+    readyToSubmit: true
 },
 {
     wood: 'Cedar',
@@ -60,7 +63,8 @@ const seedWands = [
     img: 'https://static.wikia.nocookie.net/harrypotter/images/f/fb/ProfHoraceSlughornWandNN8294.jpg',
     price: 8,
     qty: 5, 
-    clients: 'Horace Slughorn'
+    clients: 'Horace Slughorn',
+    readyToSubmit: true
 },
 {
     wood: 'Cherry',
@@ -68,7 +72,8 @@ const seedWands = [
     img: 'https://static.wikia.nocookie.net/harrypotter/images/f/f0/Neville%27s_wand.jpg',
     price: 6,
     qty: 5, 
-    clients: 'Neville Longbottom'
+    clients: 'Neville Longbottom',
+    readyToSubmit: true
 },
 {
     wood: 'Cherry',
@@ -76,7 +81,8 @@ const seedWands = [
     img: 'https://static.wikia.nocookie.net/harrypotter/images/6/6d/Gilderoy_Lockhart.jpg',
     price: 5,
     qty: 5, 
-    clients: 'Gilderoy Lockhart'
+    clients: 'Gilderoy Lockhart',
+    readyToSubmit: true
 },
 {
     wood: 'Cypress',
@@ -84,7 +90,8 @@ const seedWands = [
     img: 'https://static.wikia.nocookie.net/harrypotter/images/4/40/Remus_wand.jpg',
     price: 7,
     qty: 5, 
-    clients: 'Remus Lupin'
+    clients: 'Remus Lupin',
+    readyToSubmit: true
 },
 {
     wood: 'Elm',
@@ -92,7 +99,8 @@ const seedWands = [
     img: 'https://static.wikia.nocookie.net/harrypotter/images/e/ee/Lucius_Malfoy_wand.png/',
     price: 8,
     qty: 5, 
-    clients: 'Lucius Malfoy'
+    clients: 'Lucius Malfoy',
+    readyToSubmit: true
 },
 {
     wood: 'Fir',
@@ -100,7 +108,8 @@ const seedWands = [
     img: 'https://static.wikia.nocookie.net/harrypotter/images/d/df/McGonagall_Wand.png',
     price: 8,
     qty: 5, 
-    clients: 'Minerva McGonagall'
+    clients: 'Minerva McGonagall',
+    readyToSubmit: true
 },
 {
     wood: 'Hawthorn',
@@ -108,7 +117,8 @@ const seedWands = [
     img: 'https://static.wikia.nocookie.net/harrypotter/images/f/f0/Draco_Malfoy_Wand.jpg',
     price: 8,
     qty: 5, 
-    clients: 'Draco Malfoy'
+    clients: 'Draco Malfoy',
+    readyToSubmit: true
 },
 {
     wood: 'Hazel',
@@ -116,7 +126,8 @@ const seedWands = [
     img: 'https://static.wikia.nocookie.net/harrypotter/images/e/e2/Sybill_Trelawney_wand.png',
     price: 5,
     qty: 5, 
-    clients: 'Sybill Trelawney'
+    clients: 'Sybill Trelawney',
+    readyToSubmit: true
 },
 {
     wood: 'Holly',
@@ -124,7 +135,8 @@ const seedWands = [
     img: 'https://static.wikia.nocookie.net/harrypotter/images/c/ca/HarryPotterWandNN8415.jpg',
     price: 7,
     qty: 5, 
-    clients: 'Harry Potter'
+    clients: 'Harry Potter',
+    readyToSubmit: true
 },
 {
     wood: 'Hornbeam',
@@ -132,7 +144,8 @@ const seedWands = [
     img: 'https://static.wikia.nocookie.net/harrypotter/images/a/a3/ViktorKrumWand.jpg',
     price: 8,
     qty: 5, 
-    clients: 'Viktor Krum'
+    clients: 'Viktor Krum',
+    readyToSubmit: true
 },
 {
     wood: 'Mahogany',
@@ -140,7 +153,8 @@ const seedWands = [
     img: 'https://static.wikia.nocookie.net/harrypotter/images/a/a5/JamesPotterWand_NN8206.jpg',
     price: 7,
     qty: 5, 
-    clients: 'James Potter'
+    clients: 'James Potter',
+    readyToSubmit: true
 },
 {
     wood: 'Rosewood',
@@ -148,7 +162,8 @@ const seedWands = [
     img: 'https://static.wikia.nocookie.net/harrypotter/images/1/12/FleurDelacourWandNN8246.jpg',
     price: 7,
     qty: 5, 
-    clients: 'Fleur Delacour'
+    clients: 'Fleur Delacour',
+    readyToSubmit: true
 },
 {
     wood: 'Vine',
@@ -156,7 +171,8 @@ const seedWands = [
     img: 'https://static.wikia.nocookie.net/harrypotter/images/c/c6/HermioneGrangerWandNN8411.jpg',
     price: 6,
     qty: 5, 
-    clients: 'Hermione Granger'
+    clients: 'Hermione Granger',
+    readyToSubmit: true
 },
 {
     wood: 'Walnut',
@@ -164,7 +180,8 @@ const seedWands = [
     img: 'https://static.wikia.nocookie.net/harrypotter/images/c/c3/Bellatrix_lestrange_wand.jpg',
     price: 7,
     qty: 5, 
-    clients: 'Bellatrix Lestrange'
+    clients: 'Bellatrix Lestrange',
+    readyToSubmit: true
 },
 {
     wood: 'Willow',
@@ -172,7 +189,8 @@ const seedWands = [
     img: 'https://static.wikia.nocookie.net/harrypotter/images/6/62/RonWeasleyWandNN8413.jpg',
     price: 7,
     qty: 5, 
-    clients: 'Lily Evans'
+    clients: 'Lily Evans',
+    readyToSubmit: true
 },
 {
     wood: 'Willow',
@@ -180,7 +198,8 @@ const seedWands = [
     img: 'https://static.wikia.nocookie.net/harrypotter/images/6/62/RonWeasleyWandNN8413.jpg',
     price: 5,
     qty: 5, 
-    clients: 'Ronald Weasley'
+    clients: 'Ronald Weasley',
+    readyToSubmit: true
 },
 {
         wood: 'Yew',
@@ -188,15 +207,17 @@ const seedWands = [
         img: 'https://static.wikia.nocookie.net/harrypotter/images/1/13/Lord_Voldemort%27s_wand.jpg',
         price: 5,
         qty: 5, 
-        clients: 'Tom Riddle',  
-    },
+        clients: 'Tom Riddle',
+        readyToSubmit: true
+},
 {
     wood: 'Yew',
     core: 'Phoenix Feather',
     img: 'https://static.wikia.nocookie.net/harrypotter/images/0/0c/Ginny%27s_wand.jpg',
     price: 5,
     qty: 5, 
-    clients: 'Ginevra Weasley',  
+    clients: 'Ginevra Weasley',
+    readyToSubmit: true
 }
 ]
 
@@ -209,4 +230,5 @@ seedDB().then(()=>{
     mongoose.connection.close();
 })
 
-//why isn't process env converting to a string? TO RESEARCH! 
+//why isn't process env converting to a string? TO RESEARCH!
+    //Fixed.
