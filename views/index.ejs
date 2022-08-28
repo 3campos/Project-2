@@ -9,8 +9,8 @@
 
 </head>
 <body>
+  <h1>Wands Inventory</h1>
   <div>
-    <a href="/wands">Ollivanders Inventory</a>
     <ul>
       <li><a href="/">Home</a></li>
       <li>
@@ -21,15 +21,38 @@
     <div class = 'container'>
     <% for(let i=0; i<wand.length; i++){ %>
     <table id = tableOfWandsIndex>
+      
       <tr>    
-          <td>
-          <a href="/wands/<%=wand[i].id%>"> <%=wand[i].wood%></a>
+          <td><%if(i===0){%>
+            <%=1%>
+          <%} else {%>
+            <%=i+1%>
+          <%}%>
+        </td>
+          <td id="wandsWood">
+          <a href="/wands/<%=wand[i].id%>"> <%='Wand: '+wand[i].wood%></a>
           </td>
-          
+          <br>
           <td id="wandsCore">
-            <a href= "/wands/<%=wand[i].id%>"> <%=wand[i].core%>
+            <%='Core: '+wand[i].core%>
             </a>
           </td>
+
+          <td id="wandsPrice">
+            <%='Price: '+wand[i].price%>
+            </a>
+          </td>
+
+          <td id="wandsQty">
+            <%='Quantity in Stock: '+wand[i].qty%>
+            </a>
+          </td>
+
+          <td id="Previous clients">
+            <%='Previous clients : '+wand[i].clients%>
+            </a>
+          </td>
+
           <td>
             <form action="/wands/<%=wand[i].id%>?_method=DELETE" method="POST">
               <input type="submit" value="DELETE"/>
