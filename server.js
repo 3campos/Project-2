@@ -62,11 +62,11 @@ app.get("/", (req, res) => {
 
 //INDEX 
 app.get("/wands", (req, res)=>{
-    Wand.find({}, (error, allWands) => {
+    Wand.find({}, (error, wand) => {
         res.render('index.ejs', {
-             wands: allWands
+            wand: wand
             }); 
-            console.log('logging allWands', allWands)//this logs as "allWands is not defined"
+            // console.log('logging allWands', allWands)//this logs as "allWands is not defined"
     })
          
 })
@@ -89,19 +89,6 @@ app.get('/wands/:id', (req, res)=>{
             //the request that we're making here is getting the param. The id is what is being passed in.
             //we stored the id in its own variable that we can interpolate the variable into a delete route.
         }) 
-    })
-})
-
-//PUT ROUTE
-app.put('/wands/:id', (req, res)=>{
-    Wand.findByIdAndUpdate({id: req.params.id}, req.body, (err) => {
-    console.log('put route', req.body)
-    if(req.body.readyToSubmit === 'on'){
-        req.body.readyToSubmit = true
-    } else {
-        req.body.readyToSubmit = false
-    }
-    res.redirect('/wands')
     })
 })
 
@@ -161,11 +148,24 @@ app.delete('/wands/:id', (req, res)=>{
 app.get('/wands/:id/edit', (req, res) => {
     Wand.findById(req.params.id, (err, wand) => {
     // console.log(wand)
-    res.render('edit.ejs', {
-        wand: wand,
-        })
+    res.render('edit.ejs', {wand: wand})
+    })
+}) 
+
+//PUT ROUTE / UPDATE
+app.put('/wands/:id', (req, res)=>{
+    if(req.body.readyToSubmit === 'on'){
+        req.body.readyToSubmit = true
+    } else {
+        req.body.readyToSubmit = false
+    }
+    //👇grabbing model and then using findByIdAndUpdate method
+    Wand.findByIdAndUpdate(req.params.id, req.body, (err) => {
+    res.redirect('/wands')
     })
 })
+
+
 
 //Internal Routes
 app.use("/wands", testCtrl);
@@ -183,3 +183,33 @@ app.listen(PORT, function(){
 
 //const inventory = require('./models/index.js');
 //QUESTION: where does this go in teh above order?
+
+//gaa
+//gcmsg "message"
+//git push
+
+//CODE GRAVEYARD
+// //PUT ROUTE / UPDATE
+// app.put('/wands/:id', (req, res)=>{
+//     Wand.findByIdAndUpdate({id: req.params.id}, req.body, (err) => {
+//     console.log('put route', req.body)
+//     if(req.body.readyToSubmit === 'on'){
+//         req.body.readyToSubmit = true
+//     } else {
+//         req.body.readyToSubmit = false
+//     }
+//     res.redirect('/wands')
+//     })
+// })
+
+// //UPDATE
+// app.put('/wands/:id', (req, res) => {
+//     if(req.body.readyToSubmit === 'on') {
+//         req.body.readyToSubmit = true
+//     } else {
+//         req.body.readyToSubmit = false
+//     }
+//     Wand.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel) => {
+//         res.redirect('/wands')
+//     })
+// })

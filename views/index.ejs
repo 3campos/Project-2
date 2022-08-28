@@ -13,24 +13,32 @@
     <a href="/wands">Ollivanders Inventory</a>
     <ul>
       <li><a href="/">Home</a></li>
+      <li>
+        <a href="/wands/new">Add New Wand</a>
+      </li>
     </ul>
   </div>
     <div class = 'container'>
-    <% for(let i=0; i<wands.length; i++){ %>
+    <% for(let i=0; i<wand.length; i++){ %>
     <table id = tableOfWandsIndex>
       <tr>    
           <td>
-          <a href="wands/<%=wands[i].id%>"> <%=wands[i].wood%></a>
+          <a href="/wands/<%=wand[i].id%>"> <%=wand[i].wood%></a>
           </td>
           
           <td id="wandsCore">
-            <a href= "/wands/<%=wands[i].id%>"> <%=wands[i].core%>
+            <a href= "/wands/<%=wand[i].id%>"> <%=wand[i].core%>
             </a>
           </td>
           <td>
-            <form action="/wands/<%=wands[i].id%>?_method=DELETE" method="POST">
+            <form action="/wands/<%=wand[i].id%>?_method=DELETE" method="POST">
               <input type="submit" value="DELETE"/>
             </form>
+          </td>
+          <td>
+            <a href="/wands/<%=wand[i].id%>/edit">
+              <button>EDIT</button>
+          </a>
           </td>
       </tr>
       <br>

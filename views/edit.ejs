@@ -5,29 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/styles.css">
+    <title>Edit Wand Page</title>
 
 </head>
 <body>
+        <h1>Edit Wand Page</h1>
         <form action="/wands/<%=wand.id%>?_method=PUT" method="POST">
         
         <label for="wood">Wood</label>
         <input type="text" name="wood" id="wood" value="<%=wand.wood%>"/>
 
-        <label for="img"></label>
+        <label for="core">Core</label>
+        <input type="text" name="core" id="core" value="<%=wand.core%>"/>
+
+        <label for="img">Image Link</label>
         <input type="img" name="img" id="img" value = "<%=wand.img%>"/>
 
-        <label for="price"></label>
+        <label for="price">Price</label>
         <input type="text" name="price" id="price" value = "<%=wand.price%>"/>
 
-        <label for="qty"></label>
+        <label for="qty">Quantity</label>
         <input type="text" name="qty" id="qty" value = "<%=wand.qty%>"/>
 
-        <label for="clients"></label>
+        <label for="clients">Edit Clients</label>
         <input type="text" name="clients" id="clients" value = "<%=wand.clients%>"/>
 
         <label for="readyToSubmit">Ready to Submit</label>
         <input type="checkbox" name="readyToSubmit" id="readyToSubmit"
+        <% if(wand.readyToSubmit === true) { %>
+            checked
+            <% } %>
         />
+
         <input type ="submit" value="Edit Wand">
     </form>
 </body>
