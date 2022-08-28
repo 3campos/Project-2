@@ -146,12 +146,15 @@ app.post('/wands', (req, res)=>{
     })
 })
 
-//DESTROY
-// app.delete('/wands/:id', (req, res)=>{
-//     Wands.splice(req.params.id, 1)
-//     res.redirect('/wands')
-//   }
-//   )
+// DESTROY
+app.delete('/wands/:id', (req, res)=>{
+    // res.send('deleting item')
+    Wand.findByIdAndRemove(req.params.id, 
+                            //^grab model
+        (err, data) => {
+        res.redirect('/wands')
+        }) 
+    })
 
 // EDIT route=set up similarly to the show page.
 //   but also have a variable of the id like what we've done for the show route.
