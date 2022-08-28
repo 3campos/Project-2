@@ -21,7 +21,6 @@
     <div class = 'container'>
     <% for(let i=0; i<wand.length; i++){ %>
     <table id = tableOfWandsIndex>
-      
       <tr>    
           <td><%if(i===0){%>
             <%=1+'.'%>
@@ -33,6 +32,7 @@
           <a href="/wands/<%=wand[i].id%>"> <%='Wand: '+wand[i].wood%></a>
           </td>
           <br>
+          
           <td id="wandsCore">
             <%='Core: '+wand[i].core%>
             </a>

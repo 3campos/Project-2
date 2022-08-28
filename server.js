@@ -44,7 +44,7 @@ app.use(express.static("public"))
 const mongoose = require('mongoose');
 const { db } = require("./models/wandsDatabase.js");
 const mongoURI = process.env.MONGODB_URI
-mongoose.connect(mongoURI)
+mongoose.connect(mongoURI, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true })
 mongoose.connection.once('open', ()=> {
     console.log('connected to mongo')
 })
@@ -67,8 +67,7 @@ app.get("/wands", (req, res)=>{
             wand: wand
             }); 
             // console.log('logging allWands', allWands)//this logs as "allWands is not defined"
-    })
-         
+    }) 
 })
 
 //NEW ROUTE
