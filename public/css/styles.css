@@ -1,7 +1,59 @@
 body {
-    color: green;
+    color: blue;
 }
 
 .unclickable{
     pointer-events: none;
 }
+
+.indexContainer{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: space-around;
+    margin: 0px 0px 0px -800px;
+}
+
+.navLi{
+    color: red;
+        /* 👆 this works because the bullets are red */
+}
+
+.indexTd{
+    padding: 0;
+}
+
+#indexHomeLink{
+    color: green;
+}
+
+#indexAddNew{
+    color: green;
+}
+
+#indexHomeLink:link{
+    text-decoration: none;
+}
+
+#indexAddNew:link{
+    text-decoration: none;
+}
+
+#showImg{
+        border: 4px dotted red;
+        margin: 15px 20px;
+        border-radius: 15px;
+        animation-duration: 5s;
+        animation-name: floatWand;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+        animation-delay: 0s;
+        alternate-direction: alternate;
+        box-shadow: 5px 5px 20px 20px cyan;
+    }
+    
+    @keyframes floatWand{
+        0% {transform: translate(0, 0px); }
+        50% {transform: translate(0, 15px); }
+        100% {transform: translate(0, 0px); }   
+    }

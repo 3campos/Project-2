@@ -11,13 +11,13 @@
 
 <body>
 <div class = 'container'>
-    <span id = 'wandWood'><%='Wood: '+wand.wood%></span><br/>
-    <span id = 'wandCore'><%='Core: '+wand.core%></span><br/>
-    <span id = 'wandImg'><img src=<%=wand.img%>/></span><br/>
-    <span id = 'wandPrice'><%='Price: '+wand.price+' Galleons'%></span><br/>
-    <span id = 'wandQty'><%='Number in stock: '+wand.qty%></span><br/>
-    <span id = 'previousClients'><%='Previous buyers: '+wand.clients%></span><br/>
-    <span id = 'readyToSubmit'><%='Ready to Submit: '+wand.readyToSubmit%></span><br/>
+    <span id = 'showWood'><%='Wood: '+wand.wood%></span><br/>
+    <span id = 'showCore'><%='Core: '+wand.core%></span><br/>
+    <span><img id = 'showImg' src=<%=wand.img%>/></span><br/>
+    <span id = 'showPrice'><%='Price: '+wand.price+' Galleons'%></span><br/>
+    <span id = 'showQty'><%='Number in stock: '+wand.qty%></span><br/>
+    <span id = 'showClients'><%='Previous buyers: '+wand.clients%></span><br/>
+    <span id = 'showReadyToSubmit'><%='Ready to Submit: '+wand.readyToSubmit%></span><br/>
 
      <% if(wand.qty > 0) {%>
         <!-- //starting with an if conditional: if the wand's stock (or qty) is greater than 0, then the following will execute. -->

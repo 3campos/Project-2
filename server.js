@@ -67,7 +67,7 @@ app.get("/wands", (req, res)=>{
             wand: wand
             }); 
             // console.log('logging allWands', allWands)//this logs as "allWands is not defined"
-    }) 
+    })
 })
 
 //NEW ROUTE

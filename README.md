@@ -80,15 +80,14 @@ heroku logs --tail
 //     })
 // })
 
-//The instructions for project 2 say nothing about whether the seeding of databases is required for our project. Is seeding required? Not required for this project.
-
-//I reviewed the class video for seeding databases from week 12 (8/13).
-    //the purpose of seeding data is pushing additional array objects into an array that lives in a database, correct? The most common case when we're moving to the cloud infrastructure, for example, from a physical database.
-//For project 2, do I have to have my array of objects in two places? Is the first place in my models and the second place a database using mongo?
-        //Yes. Get the atlas account set up.
-    //am I copying and pasting from my wands.js model file into my terminal or am I going to use my terminal to grab the array from my wands.js file? It feels like i'm duplicating my work.
-
-//INTERNAL ROUTES
-// app.use("/wands/seed", (req, res)=>{
-//     Wand.create([])
-// })
+Extra notes:
+1. I used node.js, mongoose, express and ejs.
+2. I started by installing all of my packages and everything else needed for all listed in #1.
+    2a. I then found images and researched information about wands (their components and owners) from Harry Potter. This the website that I used primarily for my project: https://harrypotter.fandom.com/wiki/Wand
+    2b. At first, I built and used a local database for the first few days of my project. After discussing this with an instructor, I modified my project (altering methods and route code blocks as needed) so that I could utilize an online database on Atlas. This was accomplished after multiple days of researching and rewatching previous lessons, and critical assistance from IA's and instructors.
+    2c. I seeded my database successfully using this site provided by an IA as a resource: https://javascript.plainenglish.io/seeding-mongodb-database-from-node-the-simplest-way-3d6a0c1c4668
+    2e. After I connected my database to atlas, I completed my routes and cleaned up my ejs files to include buttons for the user's ease of navigability. 
+    2f. I then deployed to heroku successfully.
+    2g. I applied css to my file.
+3. Unsolved problems: None.
+4. Notes to self: see pseucode in server.js.
