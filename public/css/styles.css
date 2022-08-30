@@ -1,26 +1,68 @@
-body {
-    color: blue;
+h1 {
+    color: saddlebrown;
 }
 
 .unclickable{
     pointer-events: none;
 }
 
-.indexContainer{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-content: space-around;
-    margin: 0px 0px 0px -400px;
-}
-
-.navLi{
-    color: red;
+#indexNav{
+    font-size: 20px;
+    color: saddlebrown;
         /* 👆 this works because the bullets are red */
 }
 
 .indexTd{
     padding: 0;
+}
+
+.indexContainer{
+    display: flex;
+    margin: 0px 0px 0px 0px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* old css for index */
+    /* display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: space-around;
+    margin: 0px 0px 0px -1225px; */
+    /* margin: 0px 0px 0px -400px; */
+}
+
+.indexCard{
+    color: saddlebrown;
+    display: flex;
+    margin: 0px 0px 0px 0px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 200px;
+    width: 20%;
+    border: 4px dotted red;
+    margin: 15px 20px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 20px 20px cyan;
+    text-align: center;
+}
+
+.indexNumberWood{
+    display: flex;
+    margin: 0 auto;
+    height: 30%;
+}
+
+.wandInfo{
+    display: flex;
+    margin: 0 auto;
+    height: 50%;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.indexButtons{
+    display: flex;
+    margin: 0 auto;
+    height: 20%;
 }
 
 #indexHomeLink{

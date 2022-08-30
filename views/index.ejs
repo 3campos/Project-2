@@ -18,56 +18,62 @@
       </li>
     </ul>
   </div>
+  <br>
+
     <div class = 'indexContainer'>
     <% for(let i=0; i<wand.length; i++){ %>
-      <!-- Instead of a table, use a div and then each element of the div will contain the wand info. -->
-    <table id = tableOfWandsIndex>
-      <tr>    
-          <td class = "indexTd" id ="indexNumber"><%if(i===0){%>
-            <%=1+'.'%>
-          <%} else {%>
-            <%=i+1+'.'%>
-          <%}%>
-        </td>
-          <td class = "indexTd" id="indexWood">
-          <a href="/wands/<%=wand[i].id%>"> <%='Wood: '+wand[i].wood%></a>
-          </td>
-          <br>
+      <!-- Instead of a table, use a div and then each element of the div will contain the wand info. -->  
+        <div class = 'indexCard'>
+          <h2 class = 'indexNumberWood'>
+            <div class = "indexTd" id ="indexNumber"><%if(i===0){%>
+              <a href="/wands/<%=wand[i].id%>"> <%=1+'. '+wand[i].wood+' Wand'%></a>
+            <%} else {%>
+            <a href="/wands/<%=wand[i].id%>"> <%=i+1+'. '+wand[i].wood+' Wand'%></a>
+            <%}%>
+            </div>
+          </h2>
 
-          <td class = "indexTd" id="indexCore">
-            <%='Core: '+wand[i].core%>
+          <h4 class = "wandInfo"><br>
+            <div class = "indexTd" id="indexCore">
+              <%='Core: '+wand[i].core%>
+              </a>
+            </div>
+
+            <div class = "indexTd" id="indexPrice">
+              <%='Price: '+wand[i].price%>
+              </a>
+            </div>
+
+            <div class = "indexTd" id="indexQty">
+              <%='Quantity in Stock: '+wand[i].qty%>
+              </a>
+            </div>
+
+            <div class = "indexTd" id="indexClients">
+              <%='Previous clients : '+wand[i].clients%>
+              </a>
+            </div>
+            <div><br></div>
+          </h4>
+
+          <div class = "indexButtons"><br>
+            <div class = "indexTd" id = "indexDelete">
+              <form action="/wands/<%=wand[i].id%>?_method=DELETE" method="POST">
+                <input type="submit" value="DELETE"/>
+              </form>
+            </div>
+
+            <div class = "indexTd" id = "indexEdit">
+              <a href="/wands/<%=wand[i].id%>/edit">
+                <button>EDIT</button>
             </a>
-          </td>
-
-          <td class = "indexTd" id="indexPrice">
-            <%='Price: '+wand[i].price%>
-            </a>
-          </td>
-
-          <td class = "indexTd" id="indexQty">
-            <%='Quantity in Stock: '+wand[i].qty%>
-            </a>
-          </td>
-
-          <td class = "indexTd" id="indexClients">
-            <%='Previous clients : '+wand[i].clients%>
-            </a>
-          </td>
-
-          <td class = "indexTd" id = "indexDelete">
-            <form action="/wands/<%=wand[i].id%>?_method=DELETE" method="POST">
-              <input type="submit" value="DELETE"/>
-            </form>
-          </td>
-          <td class = "indexTd" id = "indexEdit">
-            <a href="/wands/<%=wand[i].id%>/edit">
-              <button>EDIT</button>
-          </a>
-          </td>
-      </tr>
+            </div>
+            <div><br></div>
+          </div>
+          
+        </div>
       <br>
-      </table>
       <% } %>
-  </div>
+    </div>
 </body>
 </html>
