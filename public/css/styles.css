@@ -11,7 +11,7 @@ body {
     flex-wrap: wrap;
     flex-direction: column;
     align-content: space-around;
-    margin: 0px 0px 0px -800px;
+    margin: 0px 0px 0px -400px;
 }
 
 .navLi{

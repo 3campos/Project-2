@@ -1,19 +1,74 @@
-For show page: 
+//old index page: 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ollivanders</title>
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
 
-<span id = 'wandWood'><%='Wood: '+showWand.wood%></span><br/>
-        <span id = 'wandCore'><%='Core: '+showWand.core%></span><br/>
-        <span id = 'wandImg'><img src=<%=showWand.img%>/></span><br/>
-        <span id = 'wandPrice'><%='Price: '+showWand.price+' Galleons'%></span><br/>
-        <span id = 'wandQty'><%='Number in stock: '+showWand.qty%></span><br/>
-        <span id = 'previousClients'><%='Previous buyers: '+showWand.clients%></span><br/>
+</head>
+<body>
+  <h1>Wands Inventory</h1>
+  <div>
+    <ul id = 'indexNav'>
+      <li class = 'navLi'><a id ="indexHomeLink" href="/">Home</a></li>
+      <li class = 'navLi'>
+        <a id="indexAddNew" href="/wands/new">Add New Wand</a>
+      </li>
+    </ul>
+  </div>
+    <div class = 'indexContainer'>
+    <% for(let i=0; i<wand.length; i++){ %>
+      <!-- Instead of a table, use a div and then each element of the div will contain the wand info. -->
+    <table id = tableOfWandsIndex>
+      <tr>    
+          <td class = "indexTd" id ="indexNumber"><%if(i===0){%>
+            <%=1+'.'%>
+          <%} else {%>
+            <%=i+1+'.'%>
+          <%}%>
+        </td>
+          <td class = "indexTd" id="indexWood">
+          <a href="/wands/<%=wand[i].id%>"> <%='Wood: '+wand[i].wood%></a>
+          </td>
+          <br>
 
-         <% if(wand.qty > 0) {%>
-            <!-- //starting with an if conditional: if the wand's stock (or qty) is greater than 0, then the following will execute. -->
-            <form action="/wands/<%=wand.id%>/sell?_method=PUT" method="POST">
-            <button>
-                Sell
-            </button>
+          <td class = "indexTd" id="indexCore">
+            <%='Core: '+wand[i].core%>
+            </a>
+          </td>
+
+          <td class = "indexTd" id="indexPrice">
+            <%='Price: '+wand[i].price%>
+            </a>
+          </td>
+
+          <td class = "indexTd" id="indexQty">
+            <%='Quantity in Stock: '+wand[i].qty%>
+            </a>
+          </td>
+
+          <td class = "indexTd" id="indexClients">
+            <%='Previous clients : '+wand[i].clients%>
+            </a>
+          </td>
+
+          <td class = "indexTd" id = "indexDelete">
+            <form action="/wands/<%=wand[i].id%>?_method=DELETE" method="POST">
+              <input type="submit" value="DELETE"/>
             </form>
-        <%} else {%>
-            <button class = 'unclickable'>Out of stock</button>
-        <%}%>
+          </td>
+          <td class = "indexTd" id = "indexEdit">
+            <a href="/wands/<%=wand[i].id%>/edit">
+              <button>EDIT</button>
+          </a>
+          </td>
+      </tr>
+      <br>
+      </table>
+      <% } %>
+  </div>
+</body>
+</html>
