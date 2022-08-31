@@ -9,7 +9,7 @@
 
 </head>
 <body>
-  <h1>Wands Inventory</h1>
+  <h1>Inventory of Wands</h1>
   <div>
     <ul id = 'indexNav'>
       <li><a href="/" class = 'navLi' id ="indexHomeLink">Home</a></li>
@@ -31,14 +31,14 @@
             </div>
           </h2>
 
-          <h4 class = "wandInfo"><br>
+          <div class = "wandInfo"><br>
             <div class = "indexTd" id="indexCore">
               <%='Core: '+wand[i].core%>
               </a>
             </div>
 
             <div class = "indexTd" id="indexPrice">
-              <%='Price: '+wand[i].price%>
+              <%='Price: '+wand[i].price+' Galleons'%>
               </a>
             </div>
 
@@ -52,7 +52,7 @@
               </a>
             </div>
             <div><br></div>
-          </h4>
+          </div>
 
           <div class = "indexButtons"><br>
 

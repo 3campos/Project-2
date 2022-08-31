@@ -63,7 +63,7 @@ app.get("/", (req, res) => {
 //INDEX 
 app.get("/wands", (req, res)=>{
     Wand.find({}, (error, wand) => {
-        res.render('index.ejs', {
+        res.render('index.ejs',{
             wand: wand
             }); 
             // console.log('logging allWands', allWands)//this logs as "allWands is not defined"
