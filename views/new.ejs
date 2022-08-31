@@ -10,30 +10,38 @@
 </head>
 
 <body>
+    <h1>Add New Wand</h1>
+    <div>
+        <ul id = 'newNav'>
+          <li><a href="/" class = 'navLi' id ="newHomeLink" >Home</a></li>
+          <li><a href="/wands" class = 'navLi' id ="newInventoryLink">Wands Inventory</a></li>
+          <li><a href="/wands/new" class = 'navLi' id="indexAddNew">Add New Wand</a></li>
+        </ul>
+      </div>
     <div class = 'container'>
         <form action = "/wands" method="POST">
 
             <label for = "wood"></label>
-            <input type = "text" name="wood" placeholder="wood" id="wood"/>
+            <input type = "text" name="wood" placeholder="Wood" id="wood" class = "newText"/>
 
             <label for = "core"></label>
-            <input type = "text" name="core" placeholder="core" id="core"/>
+            <input type = "text" name="core" placeholder="Core" id="core" class = "newText"/>
 
             <label for = "img"></label>
-            <input type = "text" name="img" id="img" placeholder = "Image Link">
+            <input type = "text" name="img" id="img" placeholder = "Image Link" class = "newText">
 
             <label for = "price"></label>
-            <input type = "text" name="price" placeholder="price" id="price"/>
+            <input type = "text" name="price" placeholder="Price" id="price" class = "newText"/>
 
             <label for = "qty"></label>
-            <input type = "text" name="qty" placeholder="qty" id="qty"/>
+            <input type = "text" name="qty" placeholder="Quantity" id="qty" class = "newText"/>
 
             <label for = "clients"></label>
-            <input type = "text" name="clients" placeholder="Previous Buyers" id="clients"/>
+            <input type = "text" name="clients" placeholder="Buyer(s)" id="clients" class = "newText"/>
 
-            <label for = "readyToSubmit">Ready</label>
+            <label for = "readyToSubmit" class = "newText">Ready</label>
             <input type = "checkbox" name = "readyToSubmit" id ="readyToSubmit"/><br>
-            <input type = "submit" name = "readyToSubmit" value = "Add New Wand"/>
+            <input type = "submit" name = "readyToSubmit" value = "Add New Wand" class = "newText"/>
             
         </form>
     </div>

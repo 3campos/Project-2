@@ -1,15 +1,22 @@
-h1 {
-    color: saddlebrown;
+h1{
+    color: coral;
+    margin: 20px 0px 0px 20px;
+    text-align: left;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+body{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: coral;
+    background-image: url("https://i.imgur.com/yNIaEFp.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
 }
 
 .unclickable{
     pointer-events: none;
-}
-
-#indexNav{
-    font-size: 20px;
-    color: saddlebrown;
-        /* 👆 this works because the bullets are red */
+    color: coral;
 }
 
 .indexTd{
@@ -31,14 +38,13 @@ h1 {
 }
 
 .indexCard{
-    color: saddlebrown;
     display: flex;
     margin: 0px 0px 0px 0px;
     flex-direction: column;
     flex-wrap: wrap;
     height: 200px;
     width: 20%;
-    border: 4px dotted red;
+    border: 4px double red;
     margin: 15px 20px;
     border-radius: 15px;
     box-shadow: 5px 5px 20px 20px cyan;
@@ -46,39 +52,96 @@ h1 {
 }
 
 .indexNumberWood{
+    color: coral;
+    text-decoration: none;
     display: flex;
     margin: 0 auto;
-    height: 30%;
+    height: 15%;
 }
+
+.indexNumberWood:hover{
+    color: crimson;
+    text-decoration: underline dotted;
+}
+
+
 
 .wandInfo{
     display: flex;
     margin: 0 auto;
-    height: 50%;
+    height: 60%;
     flex-direction: column;
     align-items: flex-start;
 }
 
 .indexButtons{
     display: flex;
-    margin: 0 auto;
-    height: 20%;
+    justify-content: space-evenly;
+    height: 25%;
+    margin: 0;
+    padding: 0px 30px 0px 0px;
 }
 
-#indexHomeLink{
-    color: green;
+#button{
+    color: coral;
 }
 
-#indexAddNew{
-    color: green;
+ul{
+    list-style-type: none;
 }
 
-#indexHomeLink:link{
+.navLi{
+    font-size: 20px;
+    color: coral;
+    margin: 0px 0px 0px 20px;
+}
+
+.navLi:link{
+    text-decoration: none;
+    color: coral;
+}
+
+.navLi:hover{
+    text-decoration: underline;
+    color: crimson;
+}
+
+#backToInventory{
+    margin: 0px 0px 0px 0px;
+    color: yellow;
+}
+
+/* #indexHomeLink:link{
     text-decoration: none;
 }
 
 #indexAddNew:link{
     text-decoration: none;
+}
+
+#indexHomeLink:hover{
+    text-decoration: underline;
+    color: saddlebrown;
+}
+
+#indexAddNew:hover{
+    text-decoration: underline;
+    color: saddlebrown;
+} */
+
+#showContainer{
+    font-size: 18px;
+}
+
+#showButton{
+    color: coral;
+    text-decoration: none;
+}
+
+.showButtonDiv{
+    display: flex;
+    width: 12%;
+    justify-content: space-evenly;
 }
 
 #showImg{
@@ -91,11 +154,17 @@ h1 {
         animation-timing-function: ease-in-out;
         animation-delay: 0s;
         alternate-direction: alternate;
-        box-shadow: 5px 5px 20px 20px cyan;
+        box-shadow: 5px 5px 20px 20px lightgreen;
     }
     
     @keyframes floatWand{
         0% {transform: translate(0, 0px); }
-        50% {transform: translate(0, 15px); }
+        50% {transform: translate(0, 12px); }
         100% {transform: translate(0, 0px); }   
     }
+
+    .newText{
+        font-size: 20px;
+        color: coral;
+    }
+    

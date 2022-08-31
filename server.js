@@ -30,7 +30,7 @@ app.use(express.urlencoded({extended: false}))
 //method override Middleware
 app.use(methodOverride("_method"))
 //serve public files
-app.use(express.static("public"))
+app.use(express.static(__dirname + '/public'));
 //use line below for deployment
 //app.use(express.static(path.join(___dirname, "public")));
 //QUESTION: Is dirname a keyword or am I writing my own directory's name there on the above line?

@@ -10,31 +10,36 @@
 </head>
 
 <body>
-<div class = 'container'>
+<div class = 'container' id = 'showContainer'>
     <span id = 'showWood'><%='Wood: '+wand.wood%></span><br/>
     <span id = 'showCore'><%='Core: '+wand.core%></span><br/>
+    <div><br></div>
     <span><img id = 'showImg' src=<%=wand.img%>/></span><br/>
+    <div><br></div>
     <span id = 'showPrice'><%='Price: '+wand.price+' Galleons'%></span><br/>
     <span id = 'showQty'><%='Number in stock: '+wand.qty%></span><br/>
     <span id = 'showClients'><%='Previous buyers: '+wand.clients%></span><br/>
     <span id = 'showReadyToSubmit'><%='Ready to Submit: '+wand.readyToSubmit%></span><br/>
-
+    <div class = "showButtonDiv">
      <% if(wand.qty > 0) {%>
         <!-- //starting with an if conditional: if the wand's stock (or qty) is greater than 0, then the following will execute. -->
         <form action="/wands/<%=wand.id%>/sell?_method=PUT" method="POST">
-        <button>
-            Sell
-        </button>
+        <br>
+        <button id = "showButton">SELL</button>
         </form>
     <%} else {%>
+        <br>
         <button class = 'unclickable'>Out of stock</button>
     <%}%>
 
     <a href="/wands/<%=wand.id%>/edit">
-        <button>EDIT</button>
+        <br>
+        <button id = "showButton">EDIT</button>
     </a>
+    </div>
     <br>
-    <a href="/wands">Back to Inventory</a>
+
+    <a href="/wands" class = 'navLi' id = 'backToInventory'>Back to Inventory</a>
     </div>
 </body>
 </html>
