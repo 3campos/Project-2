@@ -1,13 +1,14 @@
 h1{
-    color: coral;
+    color: Chartreuse;
     margin: 20px 0px 0px 20px;
     text-align: left;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+
 body{
     font-family: Georgia, 'Times New Roman', Times, serif;
-    color: coral;
+    color: Chartreuse;
     background-image: url("https://i.imgur.com/yNIaEFp.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -16,7 +17,7 @@ body{
 
 .unclickable{
     pointer-events: none;
-    color: coral;
+    color: Chartreuse;
 }
 
 .indexTd{
@@ -50,7 +51,7 @@ body{
 }
 
 .indexNumberWood{
-    color: coral;
+    color: Chartreuse;
     text-decoration: none;
     display: flex;
     margin: 0 auto;
@@ -91,13 +92,13 @@ ul{
 
 .navLi{
     font-size: 20px;
-    color: coral;
+    color: Chartreuse;
     margin: 0px 0px 0px 20px;
 }
 
 .navLi:link{
     text-decoration: none;
-    color: coral;
+    color: Chartreuse;
 }
 
 .navLi:hover{
@@ -164,6 +165,6 @@ ul{
 
     .newText{
         font-size: 20px;
-        color: coral;
+        color: Chartreuse;
     }
     

@@ -164,8 +164,6 @@ app.put('/wands/:id', (req, res)=>{
     })
 })
 
-
-
 //Internal Routes
 app.use("/wands", testCtrl);
 //whenever the user goes to /wands, the testCtrl will be imported. That is where we're bringing the database to be read by the server.
