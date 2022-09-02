@@ -87,7 +87,7 @@ app.get('/wands/:id', (req, res)=>{
             //this is creating a variable here named wand. Then I can use the variable within the route. 
             //the request that we're making here is getting the param. The id is what is being passed in.
             //we stored the id in its own variable that we can interpolate the variable into a delete route.
-        }) 
+        })
     })
 })
 
