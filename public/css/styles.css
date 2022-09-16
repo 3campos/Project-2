@@ -17,7 +17,7 @@ body{
 
 .unclickable{
     pointer-events: none;
-    color: #33FF99;
+    color: red;
 }
 
 .indexTd{
