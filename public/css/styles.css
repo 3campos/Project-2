@@ -1,5 +1,5 @@
 h1{
-    color: #33FF99;
+    color: white;
     margin: 20px 0px 0px 20px;
     text-align: left;
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -48,6 +48,8 @@ body{
     margin: 30px 20px;
     border-radius: 15px;
     box-shadow: 5px 5px 20px 20px cyan;
+    background: royalblue;
+
 }
 
 .indexNumberWood{
@@ -92,7 +94,7 @@ ul{
 
 .navLi{
     font-size: 20px;
-    color: #33FF99;
+    color: chartreuse;
     margin: 0px 0px 0px 20px;
 }
 
